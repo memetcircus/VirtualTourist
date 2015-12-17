@@ -59,4 +59,8 @@ class Photo: NSManagedObject{
             VTClient.Caches.imageCache.storeImage(newValue, withIdentifier: String("/" + id + "_" + secret + ".jpg"))
         }
     }
+    
+    override func prepareForDeletion() {
+         VTClient.Caches.imageCache.deleteImage( photoImage, withIdentifier: VTClient.sharedInstance.constructIdentifier(id, secret: secret))
+    }
 }

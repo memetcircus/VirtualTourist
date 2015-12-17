@@ -98,8 +98,6 @@ class PhotoAlbumViewController: UIViewController, MKMapViewDelegate, UICollectio
                 if(!photoArray.isEmpty){
                     
                     for photo in photoArray{
-                        
-                        VTClient.Caches.imageCache.deleteImage(photo.photoImage, withIdentifier: VTClient.sharedInstance().constructIdentifier(photo.id, secret: photo.secret))
                         sharedContext.deleteObject(photo)
                         photo.pin = nil
                         CoreDataStackManager.sharedInstance().saveContext()
@@ -127,8 +125,6 @@ class PhotoAlbumViewController: UIViewController, MKMapViewDelegate, UICollectio
                 for photo in photoArray{
                     
                     if photo.id == selectedPhotoID {
-                        
-                        VTClient.Caches.imageCache.deleteImage( photo.photoImage, withIdentifier: VTClient.sharedInstance().constructIdentifier(photo.id, secret: photo.secret))
                         sharedContext.deleteObject(photo)
                         photo.pin = nil
                         CoreDataStackManager.sharedInstance().saveContext()
@@ -154,7 +150,7 @@ class PhotoAlbumViewController: UIViewController, MKMapViewDelegate, UICollectio
     }
     
     func getPhotosForTheSelectedPin(completionHandler: (Finished: Bool) -> Void){
-        VTClient.sharedInstance().getImageFromFlickr(selectedAnnotation.coordinate) { (success, result, error) -> Void in
+        VTClient.sharedInstance.getImageFromFlickr(selectedAnnotation.coordinate) { (success, result, error) -> Void in
             if success {
                 
                 for photo in result!{
@@ -221,9 +217,9 @@ class PhotoAlbumViewController: UIViewController, MKMapViewDelegate, UICollectio
             else{
                 cell.startWaitAnimation()
                 
-                let imageSizedUrl = VTClient.sharedInstance().constructPictureURL(photo.farm, server: photo.server, id: photo.id, secret: photo.secret, size: VTClient.flickrPictureSizes.thumbnail)
+                let imageSizedUrl = VTClient.sharedInstance.constructPictureURL(photo.farm, server: photo.server, id: photo.id, secret: photo.secret, size: VTClient.flickrPictureSizes.thumbnail)
                 
-                VTClient.sharedInstance().getImagesFromImageURL(imageSizedUrl) { (success, imageData, error) -> Void in
+                VTClient.sharedInstance.getImagesFromImageURL(imageSizedUrl) { (success, imageData, error) -> Void in
                         if(success){
                             if let data = imageData {
                                 let image = UIImage(data: data)

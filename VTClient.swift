@@ -16,17 +16,11 @@ class VTClient : NSObject {
     
     var session: NSURLSession
     
+    static let sharedInstance = VTClient()
+    
     override init() {
         session = NSURLSession.sharedSession()
         super.init()
-    }
-    
-    class func sharedInstance() -> VTClient {
-        
-        struct Singleton {
-            static var sharedInstance = VTClient()
-        }
-        return Singleton.sharedInstance
     }
     
     struct Caches {
