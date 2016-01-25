@@ -11,7 +11,7 @@ import Foundation
 extension VTClient{
     
     struct Constants{
-        static let ApiKey : String = "6b73d3413dc407e3de8797ad63650144"
+        static let ApiKey : String = "ABCDEFG"
         static let BaseURL : String = "https://api.flickr.com/services/rest/"
         static let numberOfPhotosPerPage : String = "21"
         static let maxNumberOfPages : Int = 40
