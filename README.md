@@ -22,7 +22,13 @@ While the images are downloading, the photo album is in a temporary “downloadi
 Once the images have all been downloaded, the app enables the New Collection button at the bottom of the page. Tapping this button empties the photo album and causing a new fetch with a new set of images.  
 Users are able to remove photos from an album by tapping them. Pictures flows up to fill the space vacated by the removed photo upon deleting.  
 All changes to the photo album are automatically made persistent and tapping the back button returns the user to **the Map view**.
-If the user selects a pin that already has a photo album then the **Photo Album view** displays the album and the New Collection button is enabled.
+If the user selects a pin that already has a photo album then the **Photo Album view** displays the album and the New Collection button is enabled.  
+  
+####Licence
+VirtualTourist created by Mehmet Akif Acar on December 7,2015.
+Copyright © 2015 Mehmet Akif Acar, www.memetcircus.com. All rights reserved.
+  
+
 
 
 
